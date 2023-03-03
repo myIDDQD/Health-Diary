@@ -3,7 +3,6 @@ package com.example.healthdiary
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import com.example.healthdiary.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

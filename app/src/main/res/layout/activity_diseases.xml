@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".DiseasesActivity">
 
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a part of the body"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="356dp"/>
+
+        <CheckBox
+            android:id="@+id/checkBoxHead"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Head" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBody"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Body" />
+
+        <CheckBox
+            android:id="@+id/checkBoxHands"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Hands" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLegs"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Legs" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

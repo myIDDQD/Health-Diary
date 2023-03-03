@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Health Diary</string>
+    <string name="selected_item">Selected item:</string>
+
+    <string-array name="Parts">
+        <item>Head</item>
+        <item>Body</item>
+        <item>Hands</item>
+        <item>Legs</item>
+    </string-array>
 </resources>
