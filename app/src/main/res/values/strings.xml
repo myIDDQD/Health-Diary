@@ -3,6 +3,7 @@
     <string name="selected_item">Selected item:</string>
 
     <string-array name="Parts">
+        <item>Choose a part of the body</item>
         <item>Head</item>
         <item>Body</item>
         <item>Hands</item>
