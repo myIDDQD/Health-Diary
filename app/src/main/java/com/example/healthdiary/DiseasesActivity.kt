@@ -3,57 +3,79 @@ package com.example.healthdiary
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.*
+import android.widget.CheckBox
+import android.widget.Toast
 import com.example.healthdiary.databinding.ActivityDiseasesBinding
 
 class DiseasesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDiseasesBinding
-
-    private lateinit var intent: Intent
-
-    private lateinit var partsBody : Array<String>
-    private lateinit var spinner : Spinner
-    private lateinit var arrayAdapter : ArrayAdapter<String>
+    private lateinit var selectedBodyParts: MutableSet<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityDiseasesBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        setupSpinner()
+        selectedBodyParts = mutableSetOf()
+
+        binding.checkBoxHead.setOnClickListener {
+            bindCheckBox(binding.checkBoxHead)
+        }
+
+        binding.checkBoxBody.setOnClickListener {
+            bindCheckBox(binding.checkBoxBody)
+        }
+
+        binding.checkBoxHands.setOnClickListener {
+            bindCheckBox(binding.checkBoxHands)
+        }
+
+        binding.checkBoxLegs.setOnClickListener {
+            bindCheckBox(binding.checkBoxLegs)
+        }
+
 
         binding.addNote.setOnClickListener {
-            intent = Intent(this, NoteActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, NoteActivity::class.java)
+
+            if (selectedBodyParts.isEmpty()) {
+                Toast.makeText(this, "Select parts of body", Toast.LENGTH_SHORT).show()
+            } else {
+                intent.putExtra("selected_body_parts", selectedBodyParts.toTypedArray())
+
+                startActivity(intent)
+            }
         }
     }
 
-    private fun setupSpinner() {
-        partsBody = resources.getStringArray(R.array.Parts)
-        spinner = binding.spinner
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, partsBody)
-        spinner.adapter = arrayAdapter
+    private fun bindCheckBox(checkBox: CheckBox) {
+        val checkBoxText = checkBox.text.toString()
 
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
+        fun showToast(selected: Boolean) {
+            if (selected) {
                 Toast.makeText(
-                    this@DiseasesActivity,
-                    getString(R.string.selected_item) + " " + partsBody[position],
+                    this,
+                    "Body part ${checkBox.text.toString().toLowerCase()} selected!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    this,
+                    "Body part ${checkBox.text.toString().toLowerCase()} unselected!",
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Code to perform some action when nothing is selected
-            }
+        if (selectedBodyParts.contains(checkBoxText)) {
+            selectedBodyParts.remove(checkBoxText)
+            showToast(false)
+        } else {
+            selectedBodyParts.add(checkBoxText)
+            showToast(true)
         }
     }
 }

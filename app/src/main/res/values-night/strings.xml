@@ -1,11 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Health Diary</string>
-
     <string name="select_what_hurts">Select what hurts</string>
-
     <string name="head">Head</string>
     <string name="body">Body</string>
     <string name="legs">Legs</string>
-    <string name="hands">Hands</string>
-
+    <string name="hands">Hends</string>
 </resources>
