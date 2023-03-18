@@ -1,4 +1,3 @@
-
 import androidx.room.*
 import com.example.healthdiary.Database.BodyParts
 import java.time.LocalDateTime
@@ -28,7 +27,6 @@ data class StatisticDbEntity(
         val currentDate = LocalDateTime.now().format(formatter)
         return currentDate!!
     }
-
 
 
     override fun toString(): String {
