@@ -3,29 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     tools:context=".NoteActivity">
 
     <TextView
         android:id="@+id/noteDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="25dp"
         android:text="Date"
         android:textSize="20sp" />
 
-    <EditText
+    <TextView
         android:id="@+id/body_parts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:hint="selected_body_parts"
         android:textSize="20sp"
-        android:layout_below="@+id/noteDateTextView"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_below="@+id/noteDateTextView"/>
+
+    <EditText
+        android:id="@+id/noteContentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="Describe what hurts"
+        android:textSize="20sp"
+        android:layout_below="@+id/noteTitleEditText"/>
 
     <EditText
         android:id="@+id/noteTitleEditText"
@@ -34,19 +39,14 @@
         android:hint="What medicines used?"
         android:textSize="20sp"
         android:layout_below="@+id/body_parts"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="25dp"/>
 
-    <EditText
-        android:id="@+id/noteContentEditText"
+    <Button
+        android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Describe what hurts"
-        android:textSize="20sp"
-        android:layout_below="@+id/noteTitleEditText"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_below="@+id/noteContentEditText"
+        android:layout_marginTop="25dp"
+        android:text="Save" />
 
 </RelativeLayout>

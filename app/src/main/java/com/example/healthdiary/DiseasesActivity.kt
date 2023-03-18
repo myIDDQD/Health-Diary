@@ -45,7 +45,6 @@ class DiseasesActivity : AppCompatActivity() {
                 Toast.makeText(this, "Select parts of body", Toast.LENGTH_SHORT).show()
             } else {
                 intent.putExtra("selected_body_parts", selectedBodyParts.toTypedArray())
-
                 startActivity(intent)
             }
         }

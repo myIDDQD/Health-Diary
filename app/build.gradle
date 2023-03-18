@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    id 'kotlin-kapt'
 }
 
 android {
@@ -13,12 +15,16 @@ android {
 
     defaultConfig {
         applicationId "com.example.healthdiary"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {arg("room.schemaLocation", "$projectDir/schemas")}
+        }
     }
 
     buildTypes {
@@ -45,4 +51,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.room:room-runtime:2.5.0' // Библиотека "Room"
+    kapt "androidx.room:room-compiler:2.5.0" // Кодогенератор
+    implementation 'androidx.room:room-ktx:2.5.0' // Дополнительно для Kotlin Coroutines, Kotlin Flows
 }
