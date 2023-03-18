@@ -1,32 +1,22 @@
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.example.healthdiary.Database.BodyParts
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-enum class BodyParts(val names: String) {
-    HEAD("head"),
-    BODY("body"),
-    LEGS("legs"),
-    HANDS("hands")
-}
-
-//class HealthNote(
-//    val date: LocalDateTime,
-//    val title: String,
-//    val bodyParts: BodyParts,
-//    val medicine: String,
-//    val text: String
-//) {
-//    override fun toString(): String {
-//        return "Date: $date\nTitle: $title\nText: $text"
-//    }
-//}
-
-@Entity
-data class HealthNote(
-    @PrimaryKey(autoGenerate = true) val uid: Int = 0,
+@Entity(
+    tableName = "statistic",
+    indices = [Index("id")],
+    foreignKeys = [
+        ForeignKey(
+            entity = BodyParts::class,
+            parentColumns = ["id"],
+            childColumns = ["body_parts"]
+        )
+    ]
+)
+data class StatisticDbEntity(
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "date") val date: String,
     @ColumnInfo(name = "body_parts") val bodyParts: BodyParts,
     @ColumnInfo(name = "title") val title: String,

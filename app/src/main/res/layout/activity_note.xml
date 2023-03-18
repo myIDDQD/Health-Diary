@@ -24,15 +24,6 @@
         android:layout_below="@+id/noteDateTextView"/>
 
     <EditText
-        android:id="@+id/noteContentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:hint="Describe what hurts"
-        android:textSize="20sp"
-        android:layout_below="@+id/noteTitleEditText"/>
-
-    <EditText
         android:id="@+id/noteTitleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,12 +32,30 @@
         android:layout_below="@+id/body_parts"
         android:layout_marginTop="25dp"/>
 
+    <EditText
+        android:id="@+id/noteMedicine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="What medicines used?"
+        android:textSize="20sp"
+        android:layout_below="@+id/noteTitleEditText"
+        android:layout_marginTop="25dp"/>
+
+    <EditText
+        android:id="@+id/noteContentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="25dp"
+        android:hint="Describe what hurts"
+        android:textSize="20sp"
+        android:layout_below="@+id/noteMedicine"/>
+
     <Button
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/noteContentEditText"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="150dp"
         android:text="Save" />
 
 </RelativeLayout>
