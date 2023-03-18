@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Entity(
-    tableName = "statistic",
+    tableName = "health_note",
     indices = [Index("id")],
     foreignKeys = [
         ForeignKey(
@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter
         )
     ]
 )
-data class StatisticDbEntity(
+data class HealthNote(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "date") val date: String,
     @ColumnInfo(name = "body_parts") val bodyParts: BodyParts,
