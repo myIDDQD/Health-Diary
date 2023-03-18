@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(view)
 
-        binding.buttonYes.setOnClickListener {
+        binding.btnHurts.setOnClickListener {
 
             val intent = Intent(this, DiseasesActivity::class.java)
             startActivity(intent)

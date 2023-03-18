@@ -8,4 +8,11 @@
     <string name="legs">Legs</string>
     <string name="hands">Hands</string>
 
+    <string name="hurts">Біль</string>
+    <string name="weight">Вага</string>
+    <string name="pulse">Пульс</string>
+    <string name="pressure">Тиск</string>
+    <string name="temperature">Температура</string>
+    <string name="sleep">Сон</string>
+
 </resources>
