@@ -13,6 +13,6 @@ import androidx.room.RoomDatabase
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun getStatisticDao(): BaseDao
+    abstract fun getDatabaseDao(): BaseDao
 
 }
