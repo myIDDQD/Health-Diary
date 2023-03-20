@@ -1,62 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    tools:context=".PainActivity">
+    android:background="@color/black_shade_1"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/noteDateTextView"
+    <!--recycler view for displaying all notes-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/painsRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        tools:listitem="@layout/pain_rv_item" />
+
+    <!--fab for adding a new note-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/idFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Current date"
-        android:textSize="20sp" />
-
-    <Spinner
-        android:id="@+id/spinner_body_parts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/noteDateTextView"
-        android:layout_marginTop="25dp"
-        android:hint="selected_body_parts"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/noteTitleEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner_body_parts"
-        android:layout_marginTop="25dp"
-        android:hint="What medicines used?"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/noteMedicine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/noteTitleEditText"
-        android:layout_marginTop="25dp"
-        android:hint="What medicines used?"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/noteContentEditText"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/noteMedicine"
-        android:layout_marginTop="25dp"
-        android:hint="Describe what hurts"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/noteContentEditText"
-        android:layout_marginTop="150dp"
-        android:text="Save" />
-
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/black_shade_2"
+        app:tint="@color/white" />
 
 </RelativeLayout>

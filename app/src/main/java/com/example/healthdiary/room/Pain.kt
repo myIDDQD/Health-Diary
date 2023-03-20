@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 
 @Entity(tableName = "notesTable")
 class Pain (
-    @PrimaryKey(autoGenerate = true) var id : Int = 0,
-    @ColumnInfo(name = "date") val date : LocalDateTime,
-    @ColumnInfo(name = "parts") val bodyParts: BodyParts,
+    @PrimaryKey(autoGenerate = true) val id : Int = 0,
+    @ColumnInfo(name = "date") val date : String,
+//    @ColumnInfo(name = "parts") val bodyParts: BodyParts,
     @ColumnInfo(name = "description") val painDescription : String)

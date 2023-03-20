@@ -15,7 +15,7 @@
             android:name=".PainActivity"
             android:exported="false" />
         <activity
-            android:name=".DiseasesActivity"
+            android:name=".AddEditPainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -1,75 +1,86 @@
 package com.example.healthdiary
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.healthdiary.databinding.ActivityPainBinding
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.healthdiary.room.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.gtappdevelopers.noteapplication.AddEditPainActivity
+import java.util.*
 
-class PainActivity : AppCompatActivity() {
+class PainActivity : AppCompatActivity(), PainClickInterface, PainClickDeleteInterface {
 
-    private lateinit var binding: ActivityPainBinding
-
-    private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm") // ("yyyy-MM-dd HH:mm")
+    // on below line we are creating a variable
+    // for our recycler view, exit text, button and viewmodel.
+    lateinit var viewModal: PainViewModal
+    lateinit var painsRV: RecyclerView
+    lateinit var addFAB: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_pain)
 
-        binding = ActivityPainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        // on below line we are initializing
+        // all our variables.
+        painsRV = findViewById(R.id.painsRV)
+        addFAB = findViewById(R.id.idFAB)
 
-        // set current date and time on textview
-        binding.noteDateTextView.text = setCurrentDate()
+        // on below line we are setting layout
+        // manager to our recycler view.
+        painsRV.layoutManager = LinearLayoutManager(this)
 
-//        val intentExtraArray = intent.getStringArrayExtra("selected_body_parts")
-//        binding.spinnerBodyParts.text = intentExtraArray?.joinToString(", ") ?: "Error"
+        // on below line we are initializing our adapter class.
+        val noteRVAdapter = PainRVAdapter(this, this, this)
 
-        // implementing spinner
-        val bodyParts = resources.getStringArray(R.array.parts)
+        // on below line we are setting
+        // adapter to our recycler view.
+        painsRV.adapter = noteRVAdapter
 
-        if (binding.spinnerBodyParts != null) {
+        // on below line we are
+        // initializing our view modal.
+        viewModal = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        ).get(PainViewModal::class.java)
 
-            val adapter = ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                bodyParts
-            )
-
-            binding.spinnerBodyParts.adapter = adapter
-
-            binding.spinnerBodyParts.onItemSelectedListener = object :
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View,
-                    position: Int,
-                    id: Long) {
-
-                    Toast.makeText(this@PainActivity,
-                        getString(R.string.body_parts) + " " +
-                                "" + bodyParts[position], Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
-                }
+        // on below line we are calling all notes method
+        // from our view modal class to observer the changes on list.
+        viewModal.allPains.observe(this, Observer { list ->
+            list?.let {
+                // on below line we are updating our list.
+                noteRVAdapter.updateList(it)
             }
+        })
+        addFAB.setOnClickListener {
+            // adding a click listener for fab button
+            // and opening a new intent to add a new note.
+            val intent = Intent(this@PainActivity, AddEditPainActivity::class.java)
+            startActivity(intent)
+            this.finish()
         }
-
-
-
-        // TODO filling fields when start this Activity
     }
 
-    private fun setCurrentDate(): String {
-        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
-        val currentTime = LocalDateTime.now().format(formatter)
+    override fun onPainClick(note: Pain) {
+        // opening a new intent and passing a data to it.
+        val intent = Intent(this@PainActivity, AddEditPainActivity::class.java)
+        intent.putExtra("noteType", "Edit")
+//        intent.putExtra("noteTitle", note.noteTitle)
+        intent.putExtra("painDescription", note.painDescription)
+//        intent.putExtra("noteId", note.id)
+        startActivity(intent)
+        this.finish()
+    }
 
-        return currentTime.toString()
+    override fun onDeleteIconClick(note: Pain) {
+        // in on note click method we are calling delete
+        // method from our view modal to delete our not.
+        viewModal.deletePain(note)
+        // displaying a toast message
+        Toast.makeText(this, "${note.painDescription} Deleted", Toast.LENGTH_LONG).show()
     }
 }
