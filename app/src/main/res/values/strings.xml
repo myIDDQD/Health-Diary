@@ -18,7 +18,8 @@
     <string name="glucose">Глюкоза</string>
     <string name="pedometer">Крокомір</string>
 
-    <string-array name="BodyParts">
+    <string name="body_parts">Selected body parts:</string>
+    <string-array name="parts">
         <item>Head</item>
         <item>Body</item>
         <item>Hands</item>
