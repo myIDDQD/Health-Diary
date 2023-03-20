@@ -29,21 +29,27 @@ class PainActivity : AppCompatActivity() {
 //        val intentExtraArray = intent.getStringArrayExtra("selected_body_parts")
 //        binding.spinnerBodyParts.text = intentExtraArray?.joinToString(", ") ?: "Error"
 
-        // access the items of the list
+        // implementing spinner
         val bodyParts = resources.getStringArray(R.array.parts)
 
-        // access the spinner
         if (binding.spinnerBodyParts != null) {
 
-            val adapter = ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, bodyParts)
-            binding.spinnerBodyParts.adapter = adapter
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                bodyParts
+            )
 
+            binding.spinnerBodyParts.adapter = adapter
 
             binding.spinnerBodyParts.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>,
-                                            view: View, position: Int, id: Long) {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long) {
+
                     Toast.makeText(this@PainActivity,
                         getString(R.string.body_parts) + " " +
                                 "" + bodyParts[position], Toast.LENGTH_SHORT).show()

@@ -1,6 +1,6 @@
 package com.example.healthdiary.Database
 
-import HealthNote
+
 import androidx.room.Database
 import androidx.room.RoomDatabase
 

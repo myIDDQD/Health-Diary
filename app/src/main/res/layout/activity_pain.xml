@@ -23,15 +23,6 @@
         android:hint="selected_body_parts"
         android:textSize="20sp" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/body_parts"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="25dp"-->
-    <!--        android:hint="selected_body_parts"-->
-    <!--        android:textSize="20sp"-->
-    <!--        android:layout_below="@+id/noteDateTextView"/>-->
-
     <EditText
         android:id="@+id/noteTitleEditText"
         android:layout_width="match_parent"

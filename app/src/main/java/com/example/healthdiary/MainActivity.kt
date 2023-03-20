@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnHurts.setOnClickListener {
 
-            val intent = Intent(this, DiseasesActivity::class.java)
+            val intent = Intent(this, PainActivity::class.java)
             startActivity(intent)
 
         }
