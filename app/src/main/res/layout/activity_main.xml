@@ -28,6 +28,12 @@
             android:text="@string/weight" />
 
         <Button
+            android:id="@+id/btn_oxygen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/oxygen" />
+
+        <Button
             android:id="@+id/btn_temperature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +50,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pressure" />
+
+        <Button
+            android:id="@+id/btn_glucose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/glucose" />
+
+        <Button
+            android:id="@+id/btn_pedometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pedometer" />
 
         <Button
             android:id="@+id/btn_sleep"

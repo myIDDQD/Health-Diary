@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 @Database(
     version = 1,
     entities = [
-        HealthNote::class,
+//        HealthNote::class,
         BodyParts::class
     ]
 )

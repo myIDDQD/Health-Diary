@@ -39,7 +39,7 @@ class DiseasesActivity : AppCompatActivity() {
 
 
         binding.addNote.setOnClickListener {
-            val intent = Intent(this, NoteActivity::class.java)
+            val intent = Intent(this, PainActivity::class.java)
 
             if (selectedBodyParts.isEmpty()) {
                 Toast.makeText(this, "Select parts of body", Toast.LENGTH_SHORT).show()

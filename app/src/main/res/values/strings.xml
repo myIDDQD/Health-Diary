@@ -14,5 +14,15 @@
     <string name="pressure">Тиск</string>
     <string name="temperature">Температура</string>
     <string name="sleep">Сон</string>
+    <string name="oxygen">Кисень</string>
+    <string name="glucose">Глюкоза</string>
+    <string name="pedometer">Крокомір</string>
+
+    <string-array name="BodyParts">
+        <item>Head</item>
+        <item>Body</item>
+        <item>Hands</item>
+        <item>Legs</item>
+    </string-array>
 
 </resources>
