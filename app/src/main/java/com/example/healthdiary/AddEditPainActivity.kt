@@ -1,4 +1,4 @@
-package com.gtappdevelopers.noteapplication
+package com.example.healthdiary
 
 import android.content.Intent
 import android.os.Bundle

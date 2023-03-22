@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthdiary.room.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.gtappdevelopers.noteapplication.AddEditPainActivity
+
 import java.util.*
 
 class PainActivity : AppCompatActivity(), PainClickInterface, PainClickDeleteInterface {
